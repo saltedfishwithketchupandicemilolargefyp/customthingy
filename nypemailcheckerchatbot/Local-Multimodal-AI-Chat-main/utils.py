@@ -120,9 +120,3 @@ def list_ollama_models():
     
 def get_timestamp():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-def get_avatar(sender_type):
-    if sender_type == "user":
-        return "chat_icons/user_image.png"
-    else:
-       return "chat_icons/bot_image.png"
