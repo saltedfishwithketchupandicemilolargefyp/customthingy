@@ -10,9 +10,13 @@ import asyncio
 import time
 load_dotenv()
 
-
-def load_config(file_path = "config.yaml"):
-    with open(file_path, "r") as f:
+def load_config(file_path="config.yaml"):
+    absolute_path = os.path.join(os.path.dirname(__file__), file_path)
+    
+    if not os.path.exists(absolute_path):
+        raise FileNotFoundError(f"Configuration file not found: {absolute_path}")
+    
+    with open(absolute_path, "r") as f:
         return yaml.safe_load(f)
     
 config = load_config()
